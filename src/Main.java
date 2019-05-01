@@ -1,4 +1,3 @@
-package eksamen;
 
 public class Main {
 
