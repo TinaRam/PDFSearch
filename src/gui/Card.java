@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -8,14 +10,12 @@ import javax.swing.JPanel;
 public class Card extends JPanel implements ActionListener {
 
 	private Color color;
-	private FolderChooser folderChooser;
 	private JButton button;
 
 	public Card() {
-		this.color = new RandomColor().getRandomColor();
-
+		color = new ColorPicker().getRandomColor();
+		setBackground(color);
 		setLayout(new BorderLayout(20, 20));
-		setBackground(this.color);
 
 		add(button = new JButton("Select directory") {
 
@@ -23,7 +23,6 @@ public class Card extends JPanel implements ActionListener {
 				addActionListener(Card.this);
 			}
 		}, BorderLayout.NORTH);
-
 	}
 
 	@Override
@@ -34,7 +33,7 @@ public class Card extends JPanel implements ActionListener {
 	}
 
 	public Color getColor() {
-		return this.color;
+		return color;
 	}
 
 }
