@@ -1,3 +1,4 @@
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -5,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 public class Menu extends JMenuBar {
 	
@@ -39,9 +41,15 @@ public class Menu extends JMenuBar {
 		add(tools);		
 	}
 	
-	public void addMenuItem(Color color) {
-		JMenuItem row = new JMenuItem("Go to this card");
-		tools.add(row);
+	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
+		JMenuItem item = new JMenuItem("Go to this card");
+		item.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layout.show(panel, color.toString());
+			}
+		});
+		tools.add(item);
 	}
 
 }

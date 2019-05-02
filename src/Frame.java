@@ -25,7 +25,7 @@ public class Frame extends JFrame {
 		Card card = new Card();
 		panel.add(card, card.getColor().toString());
 		
-		menu.addMenuItem(card.getColor());
+		menu.addMenuItem(card.getColor(), layout, panel);
 		card.updateUI();
 		layout.show(panel, card.getColor().toString());		
 	}
