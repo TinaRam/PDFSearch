@@ -7,8 +7,12 @@ public class Frame extends JFrame {
 		setTitle("Pdf file operations");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setJMenuBar(new Menu());
+		setJMenuBar(new Menu(this));
 		setVisible(true);
+	}
+	
+	public void createCard() {
+		add(new Card());
 	}
 	
 }

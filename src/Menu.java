@@ -7,7 +7,7 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar {
 	
-	public Menu() {
+	public Menu(Frame f) {
 		JMenu file = new JMenu("File");
 		JMenu tools = new JMenu("Tools");
 		
@@ -24,13 +24,13 @@ public class Menu extends JMenuBar {
 		newCard.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// new card
-				System.out.println("New card");
+				f.createCard();
 			}
 		});
 		
 		file.add(exit);
 		tools.add(newCard);
+		tools.addSeparator();
 		
 		add(file);
 		add(tools);		
