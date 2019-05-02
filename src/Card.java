@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
 public class Card extends JPanel {
 	
 	private Color color;
+	private FolderChooser folderChooser;
 	
 	public Card() {
 		this.color = new RandomColor().getRandomColor();
@@ -18,14 +20,24 @@ public class Card extends JPanel {
 		
 		JButton button = new JButton("Select directory");
 		
+
+
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO select directory
+				// TODO FÅ DRITEN TIL Å FUNKE???
+				button.setEnabled(false);
+				add(new FolderChooser());
+				new FolderChooser();
 			}			
 		});
 		
+		// DETTE FUNKER??
+		add(new FolderChooser());
+
+
 		add(button, "North");
+		
 	}
 	
 	public Color getColor() {
