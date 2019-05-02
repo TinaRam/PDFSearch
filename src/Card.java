@@ -23,7 +23,6 @@ public class Card extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO select directory
-				
 			}			
 		});
 		

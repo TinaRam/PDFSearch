@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,9 +8,11 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar {
 	
+	private JMenu tools;
+	
 	public Menu(Frame f) {
 		JMenu file = new JMenu("File");
-		JMenu tools = new JMenu("Tools");
+		tools = new JMenu("Tools");
 		
 		JMenuItem exit = new JMenuItem("Exit");
 		JMenuItem newCard = new JMenuItem("Create a new search card");
@@ -34,6 +37,11 @@ public class Menu extends JMenuBar {
 		
 		add(file);
 		add(tools);		
+	}
+	
+	public void addMenuItem(Color color) {
+		JMenuItem row = new JMenuItem("Go to this card");
+		tools.add(row);
 	}
 
 }
