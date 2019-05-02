@@ -12,7 +12,7 @@ public class Card extends JPanel {
 	private Color color;
 	
 	public Card() {
-		this.color = getRandomColor();
+		this.color = new RandomColor().getRandomColor();
 		
 		setLayout(new BorderLayout(20, 20));
 		setBackground(this.color);
@@ -27,14 +27,6 @@ public class Card extends JPanel {
 		});
 		
 		add(button, "North");
-	}
-	
-	private Color getRandomColor() {
-		Random random = new Random();
-	    int red = random.nextInt(256);
-	    int green = random.nextInt(256);
-	    int blue = random.nextInt(256);
-		return new Color(red, green, blue);
 	}
 	
 	public Color getColor() {
