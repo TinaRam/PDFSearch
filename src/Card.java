@@ -2,44 +2,37 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 
-public class Card extends JPanel {
-	
+public class Card extends JPanel implements ActionListener {
+
 	private Color color;
 	private FolderChooser folderChooser;
-	
+	private JButton button;
+
 	public Card() {
 		this.color = new RandomColor().getRandomColor();
-		
+
 		setLayout(new BorderLayout(20, 20));
 		setBackground(this.color);
-		
-		JButton button = new JButton("Select directory");
-		
 
+		add(button = new JButton("Select directory") {
 
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO FÅ DRITEN TIL Å FUNKE???
-				button.setEnabled(false);
-				add(new FolderChooser());
-				new FolderChooser();
-			}			
-		});
-		
-		// DETTE FUNKER??
-		add(new FolderChooser());
+			{
+				addActionListener(Card.this);
+			}
+		}, BorderLayout.NORTH);
 
-
-		add(button, "North");
-		
 	}
-	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		button.setEnabled(false);
+		add(new FolderChooser());
+		updateUI();
+	}
+
 	public Color getColor() {
 		return this.color;
 	}
