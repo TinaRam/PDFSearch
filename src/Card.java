@@ -11,7 +11,7 @@ public class Card extends JPanel {
 		setBackground(Color.red);
 		
 		JButton button = new JButton("Select directory");
-		//add(button);
+		add(button, "North");
 	}
 
 }
