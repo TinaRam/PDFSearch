@@ -14,20 +14,19 @@ public class FolderChooser extends JPanel {
 		setLayout(new BorderLayout(20, 20));
 		
 		JFileChooser fileChooser = new JFileChooser(directory);
-		fileChooser.setFileSelectionMode(1);
+		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		fileChooser.setDialogTitle("Choose directory");
 
 		add(fileChooser);
 		
 		int returnValue = fileChooser.showOpenDialog(null);
 		
+		
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile();
 			
 			// this is where the magic happens
-			File[] filesInDirectory = fileChooser.getSelectedFile().listFiles();
-			
-			add(new FileList(filesInDirectory));
+			add(new FileList());
 			
 			
 		} else if (returnValue == JFileChooser.CANCEL_OPTION) {
