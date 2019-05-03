@@ -26,8 +26,10 @@ public class Card extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		FolderChooser fc = new FolderChooser();
+		add(fc);
+		button.setText(fc.getDirectory());
 		button.setEnabled(false);
-		add(new FolderChooser());
 		updateUI();
 	}
 
