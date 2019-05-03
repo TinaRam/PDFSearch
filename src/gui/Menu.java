@@ -23,7 +23,7 @@ public class Menu extends JMenuBar {
 		exit.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
@@ -31,7 +31,7 @@ public class Menu extends JMenuBar {
 		newCard.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				f.createCard();
 			}
 		});
@@ -39,14 +39,13 @@ public class Menu extends JMenuBar {
 		file.add(exit);
 		tools.add(newCard);
 		tools.addSeparator();
-
 		add(file);
 		add(tools);
 	}
 
 	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
 		JMenuItem item = new JMenuItem("Go to this card");
-		item.setForeground(color);
+		item.setBackground(color);
 		item.addActionListener(new ActionListener() {
 
 			@Override
