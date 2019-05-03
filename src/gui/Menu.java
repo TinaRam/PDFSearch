@@ -46,6 +46,7 @@ public class Menu extends JMenuBar {
 
 	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
 		JMenuItem item = new JMenuItem("Go to this card");
+		item.setForeground(color);
 		item.addActionListener(new ActionListener() {
 
 			@Override
