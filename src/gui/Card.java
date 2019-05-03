@@ -13,11 +13,10 @@ public class Card extends JPanel implements ActionListener {
 	private JButton button;
 
 	public Card() {
-		color = new ColorPicker().getRandomColor();
-		setBackground(color);
+		setBackground(color = new ColorPicker().getRandomColor());
 		setLayout(new BorderLayout(20, 20));
 
-		add(button = new JButton("Select directory") {
+		add(button = new JButton("Select Folder") {
 
 			{
 				addActionListener(Card.this);
