@@ -8,6 +8,10 @@ public class SearchField extends JPanel {
 
 	public SearchField() {
 		setLayout(new BorderLayout());
-		add(new JTextField());
+	}
+
+	public void showSearch() {
+		JTextField textField = new JTextField();
+		add(textField, BorderLayout.SOUTH);
 	}
 }
