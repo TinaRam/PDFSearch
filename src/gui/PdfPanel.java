@@ -26,14 +26,6 @@ public class PdfPanel extends JPanel {
 		pdfs.add(new PdfFile(pdf));
 	}
 
-	public void searchComplete() {
-		System.out.println("PdfPanel.java --> searchComplete");
-		for (PdfFile pdf : pdfs) {
-			String[] r = { pdf.getFilePath().toString(), pdf.getStatus() };
-			tableModel.addRow(r);
-		}
-	}
-
 	public ArrayList<PdfFile> getPdfList() {
 		return pdfs;
 	}
