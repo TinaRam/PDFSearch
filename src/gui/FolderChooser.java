@@ -23,8 +23,8 @@ public class FolderChooser extends JPanel {
 		int returnValue = fileChooser.showOpenDialog(null);
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile(); // path'en til valgt mappe
-			ps = new PDFSearch(directory, this);
-			//add(new PdfPanel());
+			ps = new PDFSearch(directory);
+			add(new PdfPanel());
 			ps.start(); // Any PDFs? - Go fish! (TinaGirDegHodepina)
 
 //			while (!ps.isSearchComplete()) {

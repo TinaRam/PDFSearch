@@ -13,15 +13,12 @@ public class PdfPanel extends JPanel {
 
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
 	private String[] columns = { "Path", "Status" };
-	private DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
+	private DefaultTableModel tableModel = new DefaultTableModel(columns, 1);
 	protected JTable pdfTable = new JTable(tableModel);
-	protected JScrollPane scrollPane;
 
 	public PdfPanel() {
 		setLayout(new BorderLayout());
-
-		showTable();
-		
+		add(new JScrollPane(pdfTable));
 	}
 
 	public void addPdf(File pdf) {
@@ -38,16 +35,6 @@ public class PdfPanel extends JPanel {
 
 	public ArrayList<PdfFile> getPdfList() {
 		return pdfs;
-	}
-
-	private void removeTable() {
-
-		remove(scrollPane);
-	}
-
-	private void showTable() {
-		scrollPane = new JScrollPane(pdfTable);
-		add(scrollPane);
 	}
 
 }
