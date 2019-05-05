@@ -31,9 +31,14 @@ public class WordSearch extends Thread {
 
 	private void search() {
 		int row = 0;
-		for (PdfFile f : files) {
-			f.setStatus("UNSEARCHED");
+		for (PdfFile file : files) {
+			file.setStatus("UNSEARCHED");
+			String[] r = { file.getFilePath().toString(), file.getStatus() };
+			panel.updateTable(row, r);
+			row++;
 		}
+		
+		row = 0;
 		for (PdfFile file : files) {
 			try {
 
