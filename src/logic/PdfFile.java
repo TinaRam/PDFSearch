@@ -34,4 +34,8 @@ public class PdfFile {
 		status = result ? "FOUND" : "NOTFOUND";
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
 }

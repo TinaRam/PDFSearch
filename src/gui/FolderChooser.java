@@ -10,6 +10,7 @@ public class FolderChooser extends JPanel {
 
 	private File directory = new File(".");
 	private PDFSearch ps;
+	protected PdfPanel pdfPanel;
 
 	public FolderChooser() {
 		setLayout(new BorderLayout(20, 20));
@@ -23,9 +24,17 @@ public class FolderChooser extends JPanel {
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile(); // path'en til valgt mappe
 			ps = new PDFSearch(directory);
-			ps.goFish(); // Any PDFs? - Go fish! (TinaGirDegHodepina)
+			add(new PdfPanel());
+			ps.start(); // Any PDFs? - Go fish! (TinaGirDegHodepina)
 
+//			while (!ps.isSearchComplete()) {
+//				add
+//			}
+//			add(new PdfPanel());
 			System.out.println("Antall PDF'er funnet i mappen " + directory + ": " + ps.getNumberOfPdfFiles());
+
+//			System.out.println("Søk ferdig? --> " + ps.isSearchComplete());
+//			System.out.println("Lever tråden? --> " + ps.isAlive());
 		}
 	}
 

@@ -1,21 +1,31 @@
 package logic;
 
 import java.io.File;
-import gui.FileList;
+import java.util.ArrayList;
+import gui.PdfPanel;
 
-public class PDFSearch {
+public class PDFSearch extends Thread {
 
-	private File directory = null;
-	private FileList fl;
+	private File directory;
+	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
+	public boolean searchComplete = false;
 
 	public PDFSearch(File dir) {
 		directory = dir;
-		fl = new FileList();
+		pdfPanel = new PdfPanel();
 	}
 
-	public void goFish() {
+	@Override
+	public void run() {
 		findPDFs(directory);
+		if (searchComplete) {
+			pdfPanel.searchComplete();
+		}
+	}
+
+	public boolean isSearchComplete() {
+		return searchComplete;
 	}
 
 	private void findPDFs(File file) {
@@ -27,13 +37,19 @@ public class PDFSearch {
 				}
 			}
 		} else if (file.getAbsolutePath().endsWith(".pdf")) {
-			fl.addPdf(file);
+			pdfPanel.addPdf(file);
 			numberOfPdfFiles++;
+			System.out.println("PDFSearch.java --> numberOfPdfFiles: " + numberOfPdfFiles);
 		}
+		searchComplete = true;
 	}
 
 	public int getNumberOfPdfFiles() {
 		return numberOfPdfFiles;
+	}
+
+	public ArrayList<PdfFile> getResult() {
+		return pdfPanel.getPdfList();
 	}
 
 }
