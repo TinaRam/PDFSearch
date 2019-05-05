@@ -2,10 +2,8 @@ package logic;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-
 import gui.PdfPanel;
 
 public class WordSearch extends Thread {
@@ -33,11 +31,14 @@ public class WordSearch extends Thread {
 
 	private void search() {
 		int row = 0;
+		for (PdfFile f : files) {
+			f.setStatus("UNSEARCHED");
+		}
 		for (PdfFile file : files) {
 			try {
-				
-				// TODO: kan vi få til en sånn status som endrer antall punktum??
-				file.setStatus("Searching...");
+
+				// TODO: kan vi fï¿½ til en sï¿½nn status som endrer antall punktum??
+				file.setStatus("SEARCHING...");
 				String[] r = { file.getFilePath().toString(), file.getStatus() };
 				panel.updateTable(row, r);
 				// ---------
