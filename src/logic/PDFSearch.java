@@ -23,7 +23,7 @@ public class PDFSearch extends Thread {
 		findPDFs(directory);
 		searchComplete = true;
 		yield();
-		pdfPanel.searchComplete();
+		pdfPanel.addSearchField();
 	}
 
 	public boolean isSearchComplete() {

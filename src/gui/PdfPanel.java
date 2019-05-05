@@ -32,7 +32,7 @@ public class PdfPanel extends JPanel {
 		return pdfs;
 	}
 
-	public void searchComplete() {
+	public void addSearchField() {
 		add(new SearchField(this), BorderLayout.SOUTH);
 
 		updateUI();
