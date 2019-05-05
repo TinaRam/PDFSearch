@@ -30,12 +30,16 @@ public class PdfFile {
 		// Legge inn kode for å sende fil til søke-klasse
 	}
 
-	public void searchResult(boolean result) {
+	public void setSearchResult(boolean result) {
 		status = result ? "FOUND" : "NOTFOUND";
 	}
 
 	public String getStatus() {
 		return status;
+	}
+	
+	public void setStatus(String s) {
+		status = s;
 	}
 
 }

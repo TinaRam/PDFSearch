@@ -18,8 +18,9 @@ public class PdfPanel extends JPanel {
 	protected JScrollPane scrollPane;
 
 	public PdfPanel() {
-		setLayout(new BorderLayout());
-		showTable();
+		setLayout(new BorderLayout(20, 20));
+		scrollPane = new JScrollPane(pdfTable);
+		add(scrollPane, BorderLayout.NORTH);
 	}
 
 	public void addPdf(File pdf) {
@@ -30,13 +31,20 @@ public class PdfPanel extends JPanel {
 		return pdfs;
 	}
 
-	private void showTable() {
-		scrollPane = new JScrollPane(pdfTable);
-		add(scrollPane);
+	public void addSearchField() {
+		add(new SearchField(this), BorderLayout.SOUTH);
+
+		updateUI();
+		System.out.println("Search complete");
 	}
-	
+
 	public void addTableRow(String[] row) {
 		tableModel.addRow(row);
+	}
+
+	public void updateTable(int row, String[] data) {
+		tableModel.removeRow(row);
+		tableModel.insertRow(row, data);
 	}
 
 }
