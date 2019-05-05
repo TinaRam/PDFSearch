@@ -21,9 +21,9 @@ public class PDFSearch extends Thread {
 	@Override
 	public void run() {
 		findPDFs(directory);
-		searchComplete = true;
 		yield();
 		pdfPanel.addSearchField();
+		searchComplete = true;
 	}
 
 	public boolean isSearchComplete() {
