@@ -16,6 +16,8 @@ public class PdfPanel extends JPanel {
 	private DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
 	protected JTable pdfTable = new JTable(tableModel);
 	protected JScrollPane scrollPane;
+	
+	private SearchField searchField;
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
@@ -32,10 +34,16 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addSearchField() {
-		add(new SearchField(this), BorderLayout.SOUTH);
+		searchField = new SearchField(this);
+		add(searchField, BorderLayout.SOUTH);
 
 		updateUI();
 		System.out.println("Search complete");
+	}
+	
+	public void finishWordSearch() {
+		searchField.enableSearchButton(true);
+		System.out.println("finished word search");
 	}
 
 	public void addTableRow(String[] row) {

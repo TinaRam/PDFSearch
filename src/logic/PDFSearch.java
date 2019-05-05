@@ -2,6 +2,9 @@ package logic;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import javax.swing.JLabel;
+
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -22,7 +25,11 @@ public class PDFSearch extends Thread {
 	public void run() {
 		findPDFs(directory);
 		yield();
-		pdfPanel.addSearchField();
+		if (getNumberOfPdfFiles() > 0) {
+			pdfPanel.addSearchField();
+		} else {
+			pdfPanel.add(new JLabel("No PDFs found"));
+		}
 		searchComplete = true;
 	}
 
