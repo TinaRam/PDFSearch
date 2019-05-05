@@ -10,7 +10,7 @@ public class PDFSearch extends Thread {
 	private File directory;
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
-	public boolean searchComplete = false;
+	private boolean searchComplete = false;
 
 	public PDFSearch(File dir, FolderChooser f) {
 		directory = dir;
@@ -20,6 +20,7 @@ public class PDFSearch extends Thread {
 
 	@Override
 	public void run() {
+		System.out.println("Starting search...");
 		findPDFs(directory);
 		searchComplete = true;
 		System.out.println("Search complete");
