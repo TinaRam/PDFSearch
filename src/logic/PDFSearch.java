@@ -2,7 +2,6 @@ package logic;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -22,6 +21,8 @@ public class PDFSearch extends Thread {
 	@Override
 	public void run() {
 		findPDFs(directory);
+		searchComplete = true;
+		System.out.println("Search complete");
 	}
 
 	public boolean isSearchComplete() {
@@ -43,7 +44,6 @@ public class PDFSearch extends Thread {
 			String[] r = { file.getAbsolutePath().toString(), "UNSEARCHED" };
 			pdfPanel.addTableRow(r);
 		}
-		searchComplete = true;
 	}
 
 	public int getNumberOfPdfFiles() {
