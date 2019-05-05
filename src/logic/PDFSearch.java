@@ -9,10 +9,12 @@ public class PDFSearch extends Thread {
 
 	private File directory;
 	private PdfPanel pdfPanel;
+	private TimeTracker time;
 	private int numberOfPdfFiles;
 	private boolean searchComplete = false;
 
 	public PDFSearch(File dir, FolderChooser f) {
+		time = new TimeTracker();
 		directory = dir;
 		pdfPanel = new PdfPanel();
 		f.add(pdfPanel);
@@ -21,8 +23,12 @@ public class PDFSearch extends Thread {
 	@Override
 	public void run() {
 		System.out.println("Starting search...");
+		time.startTimer();
 		findPDFs(directory);
-		yield();
+//		pdfPanel.animateJL();
+//		yield();
+		time.stopTimer();
+		pdfPanel.addTimeField(time.getFormattedTimeTot());
 		pdfPanel.addSearchField();
 		searchComplete = true;
 	}
