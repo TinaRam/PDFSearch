@@ -22,7 +22,8 @@ public class PDFSearch extends Thread {
 	public void run() {
 		findPDFs(directory);
 		searchComplete = true;
-		System.out.println("Search complete");
+		yield();
+		pdfPanel.searchComplete();
 	}
 
 	public boolean isSearchComplete() {
