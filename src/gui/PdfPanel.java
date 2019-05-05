@@ -19,9 +19,7 @@ public class PdfPanel extends JPanel {
 
 	public PdfPanel() {
 		setLayout(new BorderLayout());
-
 		showTable();
-		
 	}
 
 	public void addPdf(File pdf) {
@@ -40,14 +38,13 @@ public class PdfPanel extends JPanel {
 		return pdfs;
 	}
 
-	private void removeTable() {
-
-		remove(scrollPane);
-	}
-
 	private void showTable() {
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane);
+	}
+	
+	public void addTableRow(String[] row) {
+		tableModel.addRow(row);
 	}
 
 }

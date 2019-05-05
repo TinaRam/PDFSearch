@@ -43,6 +43,8 @@ public class PDFSearch extends Thread {
 			pdfPanel.addPdf(file);
 			numberOfPdfFiles++;
 			System.out.println("PDFSearch.java --> numberOfPdfFiles: " + numberOfPdfFiles);
+			String[] r = { file.getAbsolutePath().toString(), "UNSEARCHED" };
+			pdfPanel.addTableRow(r);
 		}
 		searchComplete = true;
 	}
