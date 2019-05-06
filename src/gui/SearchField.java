@@ -30,8 +30,7 @@ public class SearchField extends JPanel {
 			// TODO: fikse mindre kode?
 			@Override
 			public void keyPressed(KeyEvent e) {
-				int key = e.getKeyCode();
-				if (key == KeyEvent.VK_ENTER) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					search();
 				}
 			}
