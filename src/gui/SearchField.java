@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -16,11 +18,37 @@ public class SearchField extends JPanel {
 	private JTextField textField;
 	private JButton search;
 	private JButton reset;
+	private PdfPanel panel;
 
-	public SearchField(PdfPanel panel) {
+	public SearchField(PdfPanel p) {
+		panel = p;
 		setLayout(new BorderLayout(20, 20));
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(600, 20));
+		textField.addKeyListener(new KeyListener() {
+
+			// TODO: fikse mindre kode?
+			@Override
+			public void keyPressed(KeyEvent e) {
+				int key = e.getKeyCode();
+				if (key == KeyEvent.VK_ENTER) {
+					search();
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
 		add(textField, BorderLayout.LINE_START);
 
 		reset = new JButton("X");
@@ -40,13 +68,17 @@ public class SearchField extends JPanel {
 		search.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				enableSearchButton(false);
-				enableResetButton(false);
-				enableTextField(false);
-				new WordSearch(panel, getSearchWord());
+				search();
 			}
 		});
 
+	}
+	
+	private void search() {
+		enableSearchButton(false);
+		enableResetButton(false);
+		enableTextField(false);
+		new WordSearch(panel, getSearchWord());
 	}
 
 	public String getSearchWord() {
@@ -64,7 +96,6 @@ public class SearchField extends JPanel {
 	public void enableTextField(boolean b) {
 		textField.setEnabled(b);
 	}
-
 
 	private void resetTextField() {
 		textField.setText("");
