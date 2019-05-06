@@ -38,6 +38,12 @@ public class TimeTracker {
 				(ms % 1000)));
 	}
 
+	public String getFormattedElapsedTime() {
+		long ms = this.msFromStart();
+		return (String.format("%02d:%02d:%02d:%02d", ms / 3600000, (ms % 3600000) / 60000, (ms % 60000) / 1000,
+				(ms % 1000)));
+	}
+
 	public String getElapsedMs() {
 		return "" + elapsedMillis;
 	}

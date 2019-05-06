@@ -16,8 +16,8 @@ public class PdfPanel extends JPanel {
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
 	private String[] columns = { "Path", "Status" };
 	private DefaultTableModel tableModel;
-	private JTable pdfTable; // denne er protected i master
-	private JScrollPane scrollPane; // denne er protected i master. Men det utgjør ingen forskjell (har testa)
+	private JTable pdfTable;
+	private JScrollPane scrollPane;
 	private JLabel jl;
 	private SearchField searchField;
 
@@ -46,6 +46,11 @@ public class PdfPanel extends JPanel {
 
 	public ArrayList<PdfFile> getPdfList() {
 		return pdfs;
+	}
+
+	public void showElapsedTime(String timeFromStart) {
+		jl.setText(timeFromStart);
+		updateUI();
 	}
 
 	public void addSearchField() {

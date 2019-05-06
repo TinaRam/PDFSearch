@@ -1,7 +1,10 @@
 package logic;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.Timer;
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -10,12 +13,11 @@ public class PDFSearch extends Thread {
 	private File directory;
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
-	public boolean searchComplete = false; // denne er public i master og private i findPDFs. Bytta, men det endra
-											// ingenting...
-	private TimeTracker time;
+//	public boolean searchComplete = false;
+	private TimeTracker trackTime;
 
 	public PDFSearch(File dir, FolderChooser f) {
-		time = new TimeTracker();
+		trackTime = new TimeTracker();
 		directory = dir;
 		pdfPanel = new PdfPanel();
 		f.add(pdfPanel);
@@ -24,24 +26,38 @@ public class PDFSearch extends Thread {
 	@Override
 	public void run() {
 		System.out.println("Started search");
-		time.startTimer();
+		trackTime.startTimer();
+
+		ActionListener al = new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				pdfPanel.showElapsedTime(trackTime.getFormattedElapsedTime());
+			}
+		};
+		Timer timer = new Timer(1, al);
+		timer.start();
+
 		findPDFs(directory);
 		yield();
-		time.stopTimer();
-		pdfPanel.addTimeField(time.getFormattedTimeTot());
+		trackTime.stopTimer();
+
+		timer.stop();
+
+		pdfPanel.addTimeField(trackTime.getFormattedTimeTot());
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
 			String[] r = { "", "No PDFs found" };
 			pdfPanel.addTableRow(r);
 		}
-		searchComplete = true;
+
+//		searchComplete = true;
 		System.out.println("Search complete!");
 	}
 
-	public boolean isSearchComplete() {
-		return searchComplete;
-	}
+//	public boolean isSearchComplete() {
+//		return searchComplete;
+//	}
 
 	private void findPDFs(File file) {
 		if (file.isDirectory()) {
