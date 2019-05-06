@@ -3,8 +3,6 @@ package logic;
 import java.io.File;
 import java.util.ArrayList;
 
-import javax.swing.JLabel;
-
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -28,7 +26,10 @@ public class PDFSearch extends Thread {
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
-			pdfPanel.add(new JLabel("No PDFs found"));
+			//pdfPanel.add(new JLabel("No PDFs found"));
+			// TODO: rød tekst?
+			String[] r = { "", "No PDFs found" };
+			pdfPanel.addTableRow(r);
 		}
 		searchComplete = true;
 	}
