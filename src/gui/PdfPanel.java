@@ -55,7 +55,7 @@ public class PdfPanel extends JPanel {
 
 	public void addSearchField() {
 		searchField = new SearchField(this);
-		add(searchField, BorderLayout.SOUTH);
+		add(searchField, BorderLayout.EAST);
 		updateUI();
 	}
 
@@ -76,9 +76,9 @@ public class PdfPanel extends JPanel {
 		tableModel.insertRow(row, data);
 	}
 
-	public void addTimeField(String s) {
-		jl.setText(s);
-		updateUI();
-	}
+//	public void addTimeField(String s) {
+//		jl.setText(s);
+//		updateUI();
+//	}
 
 }
