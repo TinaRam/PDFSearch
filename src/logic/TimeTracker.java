@@ -5,8 +5,8 @@ import java.time.Instant;
 
 public class TimeTracker {
 
-	protected Instant start;
-	protected Instant stop;
+	private Instant start;
+	private Instant stop;
 	private long elapsedMillis;
 	private String formattedTime;
 
@@ -45,18 +45,4 @@ public class TimeTracker {
 	public String getFormattedTimeTot() {
 		return formattedTime;
 	}
-
-//	public void test() {
-//		this.startTimer();
-//		try {
-//			Thread.sleep(61035);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
-//		this.stopTimer();
-//
-//		System.out.println("Time in ms: " + elapsedMillis);
-//		System.out.println("Formatted time: " + formattedTime);
-//	}
-
 }
