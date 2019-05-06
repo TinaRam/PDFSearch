@@ -19,7 +19,6 @@ public class PdfPanel extends JPanel {
 	private JTable pdfTable;
 	private JScrollPane scrollPane;
 	private JLabel jl;
-
 	private SearchField searchField;
 
 	public PdfPanel() {
@@ -73,7 +72,7 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addTimeField(String s) {
-//		jl.setText(s);
+		jl.setText(s);
 		updateUI();
 	}
 
