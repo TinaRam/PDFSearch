@@ -9,9 +9,10 @@ public class PDFSearch extends Thread {
 
 	private File directory;
 	private PdfPanel pdfPanel;
-	private TimeTracker time;
 	private int numberOfPdfFiles;
-	private boolean searchComplete = false;
+	public boolean searchComplete = false; // denne er public i master og private i findPDFs. Bytta, men det endra
+											// ingenting...
+	private TimeTracker time;
 
 	public PDFSearch(File dir, FolderChooser f) {
 		time = new TimeTracker();
@@ -20,6 +21,7 @@ public class PDFSearch extends Thread {
 		f.add(pdfPanel);
 	}
 
+	@Override
 	public void run() {
 		System.out.println("Started search");
 		time.startTimer();

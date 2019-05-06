@@ -16,8 +16,8 @@ public class PdfPanel extends JPanel {
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
 	private String[] columns = { "Path", "Status" };
 	private DefaultTableModel tableModel;
-	private JTable pdfTable;
-	private JScrollPane scrollPane;
+	private JTable pdfTable; // denne er protected i master
+	private JScrollPane scrollPane; // denne er protected i master. Men det utgjør ingen forskjell (har testa)
 	private JLabel jl;
 	private SearchField searchField;
 
@@ -49,7 +49,11 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addSearchField() {
-		add(new SearchField(this), BorderLayout.SOUTH);
+//		 denne manglet i findPDFsProgress. Ved å legge til denne så kom det ingen feilmelding, men kunne fortsatt ikke fullføre søk i pdf-filer
+		searchField = new SearchField(this);
+
+//		add(new SearchField(this), BorderLayout.SOUTH); // HER ER JÆVLEN!! ROTEN TIL ALT VONDT!
+		add(searchField, BorderLayout.SOUTH);
 		updateUI();
 	}
 
