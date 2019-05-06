@@ -3,10 +3,13 @@ package gui;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.ArrayList;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import logic.PdfFile;
 import logic.TableCellRenderer;
 
@@ -17,6 +20,8 @@ public class PdfPanel extends JPanel {
 	private DefaultTableModel tableModel;
 	protected JTable pdfTable;
 	protected JScrollPane scrollPane;
+	
+	private JLabel jl;
 
 	private SearchField searchField;
 
@@ -35,6 +40,9 @@ public class PdfPanel extends JPanel {
 
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
+		
+		jl = new JLabel("Searching..");
+		add(jl);
 	}
 
 	public void addPdf(File pdf) {
@@ -68,6 +76,11 @@ public class PdfPanel extends JPanel {
 	public void updateTable(int row, String[] data) {
 		tableModel.removeRow(row);
 		tableModel.insertRow(row, data);
+	}
+	
+	public void addTimeField(String s) {
+		jl.setText(s);
+		updateUI();
 	}
 
 }
