@@ -2,7 +2,6 @@ package logic;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -27,7 +26,7 @@ public class PDFSearch extends Thread {
 		time.startTimer();
 		findPDFs(directory);
 //		pdfPanel.animateJL();
-//		yield();
+		yield();
 		time.stopTimer();
 		pdfPanel.addTimeField(time.getFormattedTimeTot());
 		pdfPanel.addSearchField();

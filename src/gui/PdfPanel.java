@@ -25,6 +25,7 @@ public class PdfPanel extends JPanel {
 		setLayout(new BorderLayout(20, 20));
 
 		tableModel = new DefaultTableModel(columns, 0) {
+
 			// set cell uneditable
 			public boolean isCellEditable(int row, int column) {
 				return false;
@@ -32,7 +33,6 @@ public class PdfPanel extends JPanel {
 		};
 		pdfTable = new JTable(tableModel);
 		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
-
 
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
