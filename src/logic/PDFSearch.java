@@ -25,12 +25,12 @@ public class PDFSearch extends Thread {
 		System.out.println("Starting search...");
 		time.startTimer();
 		findPDFs(directory);
-//		pdfPanel.animateJL();
 		yield();
 		time.stopTimer();
 		pdfPanel.addTimeField(time.getFormattedTimeTot());
 		pdfPanel.addSearchField();
 		searchComplete = true;
+		System.out.println("Search complete!");
 	}
 
 	public boolean isSearchComplete() {
