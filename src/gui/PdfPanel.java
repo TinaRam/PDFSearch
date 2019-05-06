@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import logic.PdfFile;
+import logic.TableCellRenderer;
 
 public class PdfPanel extends JPanel {
 
@@ -30,6 +31,8 @@ public class PdfPanel extends JPanel {
 			}
 		};
 		pdfTable = new JTable(tableModel);
+		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
+
 
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
