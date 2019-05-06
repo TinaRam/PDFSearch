@@ -12,6 +12,8 @@ public class PDFSearch extends Thread {
 	private int numberOfPdfFiles;
 	public boolean searchComplete = false;
 
+	private TimeTracker time;
+	
 	public PDFSearch(File dir, FolderChooser f) {
 		directory = dir;
 		pdfPanel = new PdfPanel();
