@@ -18,9 +18,7 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
 
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 
-		String status = (String) tableModel.getValueAt(row, 1);
-		System.out.println(status);
-		
+		String status = (String) tableModel.getValueAt(row, 1);		
 
 		if (status == "SEARCHING...") {
 			label.setForeground(Color.yellow);

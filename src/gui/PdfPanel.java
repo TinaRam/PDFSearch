@@ -3,38 +3,20 @@ package gui;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.ArrayList;
+
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 import logic.PdfFile;
-import logic.TableCellRenderer;
 
 public class PdfPanel extends JPanel {
 
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
-	private String[] columns = { "Path", "Status" };
-	private DefaultTableModel tableModel;
-	protected JTable pdfTable;
-	protected JScrollPane scrollPane;
-
 	private SearchField searchField;
+	private PdfTable table = new PdfTable();
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
-
-		tableModel = new DefaultTableModel(columns, 0) {
-			// set cell uneditable
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-		};
-		pdfTable = new JTable(tableModel);
-		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
-
-
-		scrollPane = new JScrollPane(pdfTable);
-		add(scrollPane, BorderLayout.NORTH);
+		add(table);
 	}
 
 	public void addPdf(File pdf) {
@@ -62,12 +44,11 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addTableRow(String[] row) {
-		tableModel.addRow(row);
+		table.addTableRow(row);
 	}
 
 	public void updateTable(int row, String[] data) {
-		tableModel.removeRow(row);
-		tableModel.insertRow(row, data);
+		table.updateTable(row, data);
 	}
 
 }
