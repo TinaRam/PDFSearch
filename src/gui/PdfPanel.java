@@ -43,8 +43,8 @@ public class PdfPanel extends JPanel {
 
 	public void finishWordSearch() {
 		searchField.enableSearchButton(true);
-
 		searchField.enableResetButton(true);
+		searchField.enableTextField(true);
 
 		System.out.println("finished word search");
 	}

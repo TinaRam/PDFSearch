@@ -42,6 +42,7 @@ public class SearchField extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				enableSearchButton(false);
 				enableResetButton(false);
+				enableTextField(false);
 				new WordSearch(panel, getSearchWord());
 			}
 		});
@@ -59,6 +60,11 @@ public class SearchField extends JPanel {
 	public void enableResetButton(boolean b) {
 		reset.setEnabled(b);
 	}
+
+	public void enableTextField(boolean b) {
+		textField.setEnabled(b);
+	}
+
 
 	private void resetTextField() {
 		textField.setText("");
