@@ -51,7 +51,6 @@ public class PdfPanel extends JPanel {
 	public void addSearchField() {
 		add(new SearchField(this), BorderLayout.SOUTH);
 		updateUI();
-		System.out.println("Search complete");
 	}
 
 	public void finishWordSearch() {
