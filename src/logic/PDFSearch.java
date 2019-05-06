@@ -1,9 +1,11 @@
 package logic;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.Timer;
 import gui.FolderChooser;
 import gui.PdfPanel;
@@ -13,7 +15,6 @@ public class PDFSearch extends Thread {
 	private File directory;
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
-//	public boolean searchComplete = false;
 	private TimeTracker trackTime;
 
 	public PDFSearch(File dir, FolderChooser f) {
@@ -39,25 +40,21 @@ public class PDFSearch extends Thread {
 
 		findPDFs(directory);
 		yield();
-		trackTime.stopTimer();
 
+		trackTime.stopTimer();
 		timer.stop();
 
 //		pdfPanel.addTimeField(trackTime.getFormattedTimeTot());
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
-			String[] r = { "", "No PDFs found" };
-			pdfPanel.addTableRow(r);
+			pdfPanel.add(new JLabel("No PDFs found!"));
+			pdfPanel.updateUI();
+//			String[] r = { "", "No PDFs found" };
+//			pdfPanel.addTableRow(r);
 		}
-
-//		searchComplete = true;
 		System.out.println("Search complete!");
 	}
-
-//	public boolean isSearchComplete() {
-//		return searchComplete;
-//	}
 
 	private void findPDFs(File file) {
 		if (file.isDirectory()) {

@@ -36,8 +36,8 @@ public class PdfPanel extends JPanel {
 
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		jl = new JLabel("Searching...");
-		add(jl);
+		jl = new JLabel("00:00:00:02");
+		add(jl, BorderLayout.WEST);
 	}
 
 	public void addPdf(File pdf) {
@@ -75,10 +75,5 @@ public class PdfPanel extends JPanel {
 		tableModel.removeRow(row);
 		tableModel.insertRow(row, data);
 	}
-
-//	public void addTimeField(String s) {
-//		jl.setText(s);
-//		updateUI();
-//	}
 
 }
