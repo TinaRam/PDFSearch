@@ -2,7 +2,6 @@ package logic;
 
 import java.awt.Color;
 import java.awt.Component;
-
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -15,12 +14,8 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
 			int row, int col) {
 
 		JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
-
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-
 		String status = (String) tableModel.getValueAt(row, 1);
-		System.out.println(status);
-		
 
 		if (status == "SEARCHING...") {
 			label.setForeground(Color.yellow);

@@ -2,7 +2,6 @@ package logic;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -21,17 +20,19 @@ public class PDFSearch extends Thread {
 
 	@Override
 	public void run() {
+		System.out.println("Started search");
 		findPDFs(directory);
 		yield();
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
-			//pdfPanel.add(new JLabel("No PDFs found"));
-			// TODO: rød tekst?
+			// pdfPanel.add(new JLabel("No PDFs found"));
+			// TODO: rï¿½d tekst?
 			String[] r = { "", "No PDFs found" };
 			pdfPanel.addTableRow(r);
 		}
 		searchComplete = true;
+		System.out.println("Search complete!");
 	}
 
 	public boolean isSearchComplete() {
