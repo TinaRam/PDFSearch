@@ -3,7 +3,6 @@ package gui;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -17,13 +16,13 @@ public class PdfPanel extends JPanel {
 	private DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
 	protected JTable pdfTable = new JTable(tableModel);
 	protected JScrollPane scrollPane;
-	private JLabel jl;
+//	private AnimatedJLabel jl = new AnimatedJLabel();
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		add(jl = new JLabel("Searching..."));
+//		add(jl = new JLabel("Searching..."));
 	}
 
 	public void addPdf(File pdf) {
@@ -50,7 +49,7 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addTimeField(String s) {
-		jl.setText(s);
+//		jl.setText(s);
 		updateUI();
 	}
 
