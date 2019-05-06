@@ -3,13 +3,11 @@ package gui;
 import java.awt.BorderLayout;
 import java.io.File;
 import java.util.ArrayList;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import logic.PdfFile;
 import logic.TableCellRenderer;
 
@@ -20,15 +18,14 @@ public class PdfPanel extends JPanel {
 	private DefaultTableModel tableModel;
 	protected JTable pdfTable;
 	protected JScrollPane scrollPane;
-	
 	private JLabel jl;
-
 	private SearchField searchField;
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
 
 		tableModel = new DefaultTableModel(columns, 0) {
+
 			// set cell uneditable
 			public boolean isCellEditable(int row, int column) {
 				return false;
@@ -37,10 +34,8 @@ public class PdfPanel extends JPanel {
 		pdfTable = new JTable(tableModel);
 		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
 
-
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		
 		jl = new JLabel("Searching..");
 		add(jl);
 	}
@@ -56,9 +51,7 @@ public class PdfPanel extends JPanel {
 	public void addSearchField() {
 		searchField = new SearchField(this);
 		add(searchField, BorderLayout.SOUTH);
-
 		updateUI();
-		System.out.println("Search complete");
 	}
 
 	public void finishWordSearch() {
@@ -77,7 +70,7 @@ public class PdfPanel extends JPanel {
 		tableModel.removeRow(row);
 		tableModel.insertRow(row, data);
 	}
-	
+
 	public void addTimeField(String s) {
 		jl.setText(s);
 		updateUI();
