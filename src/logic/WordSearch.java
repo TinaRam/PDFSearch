@@ -26,41 +26,41 @@ public class WordSearch extends Thread {
 	@Override
 	public void run() {
 		search();
-		System.out.println("finished word search");
+		panel.finishWordSearch();
 	}
 
 	private void search() {
 		int row = 0;
 		for (PdfFile file : files) {
-			file.setStatus("UNSEARCHED");
-			String[] r = { file.getFilePath().toString(), file.getStatus() };
-			panel.updateTable(row, r);
+			updateFileStatus(file, row, "UNSEARCHED");
 			row++;
 		}
-		
+
 		row = 0;
 		for (PdfFile file : files) {
+			// TODO: kan vi f� til en s�nn status som endrer antall punktum??
+			updateFileStatus(file, row, "SEARCHING...");
+			// ---------
 			try {
-
-				// TODO: kan vi f� til en s�nn status som endrer antall punktum??
-				file.setStatus("SEARCHING...");
-				String[] r = { file.getFilePath().toString(), file.getStatus() };
-				panel.updateTable(row, r);
-				// ---------
 
 				PDDocument document = PDDocument.load(file.getFile());
 				String documentText = new PDFTextStripper().getText(document);
 
-				file.setSearchResult(documentText.indexOf(searchWord) > -1);
-				document.close();
+				updateFileStatus(file, row, documentText.indexOf(searchWord) > -1 ? "FOUND" : "NOTFOUND");
 
-				String[] r2 = { file.getFilePath().toString(), file.getStatus() };
-				panel.updateTable(row, r2);
+				document.close();
 			} catch (IOException e) {
+				updateFileStatus(file, row, "NOTFOUND");
 				e.printStackTrace();
 			}
 			row++;
 		}
+	}
+
+	private void updateFileStatus(PdfFile file, int row, String status) {
+		file.setStatus(status);
+		String[] r = { file.getFilePath().toString(), file.getStatus() };
+		panel.updateTable(row, r);
 	}
 
 }

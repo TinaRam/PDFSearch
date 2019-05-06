@@ -18,6 +18,8 @@ public class PdfPanel extends JPanel {
 	protected JScrollPane scrollPane;
 //	private AnimatedJLabel jl = new AnimatedJLabel();
 
+	private SearchField searchField;
+
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
 		scrollPane = new JScrollPane(pdfTable);
@@ -39,6 +41,14 @@ public class PdfPanel extends JPanel {
 		System.out.println("Search complete");
 	}
 
+	public void finishWordSearch() {
+		searchField.enableSearchButton(true);
+		searchField.enableResetButton(true);
+		searchField.enableTextField(true);
+
+		System.out.println("finished word search");
+	}
+
 	public void addTableRow(String[] row) {
 		tableModel.addRow(row);
 	}
@@ -54,9 +64,9 @@ public class PdfPanel extends JPanel {
 	}
 
 // Prøvde å finne en enkel måte å animere Searching.  ..  ..
-// Men denne forstyrrer thread'en som allerede holder på	
+// Men denne forstyrrer thread'en som allerede holder på
 // Lar den ligge litt, kanskje et eple faller på hodet mitt i løpet av uka
-// Kanskje jeg kan bruke javax.swing.Timer med actionListener???	
+// Kanskje jeg kan bruke javax.swing.Timer med actionListener???
 // -TinaHodepina-
 
 //	public void animateJL() {

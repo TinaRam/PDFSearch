@@ -2,6 +2,7 @@ package logic;
 
 import java.io.File;
 import java.util.ArrayList;
+
 import gui.FolderChooser;
 import gui.PdfPanel;
 
