@@ -13,8 +13,8 @@ public class PdfPanel extends JPanel {
 
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
 	private String[] columns = { "Path", "Status" };
-	private DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
-	protected JTable pdfTable = new JTable(tableModel);
+	private DefaultTableModel tableModel;
+	protected JTable pdfTable;
 	protected JScrollPane scrollPane;
 //	private AnimatedJLabel jl = new AnimatedJLabel();
 
@@ -22,6 +22,15 @@ public class PdfPanel extends JPanel {
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
+
+		tableModel = new DefaultTableModel(columns, 0) {
+			// set cell uneditable
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		pdfTable = new JTable(tableModel);
+
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
 //		add(jl = new JLabel("Searching..."));
