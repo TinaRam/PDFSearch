@@ -14,7 +14,6 @@ public class TimeTracker {
 		start = Instant.now();
 	}
 
-	// Ms fra start til nå. Timer fortsatt aktiv....
 	public long msFromStart() {
 		return Duration.between(start, Instant.now()).toMillis();
 	}
@@ -35,8 +34,6 @@ public class TimeTracker {
 
 	// Formaterer ms om til timer:min:sec lagres i egen varibel
 	private void formatElapsedTime(long ms) {
-//		long sec = ms / 1000;
-//		formattedTime = (String.format("%02d:%02d:%02d:%02d", sec / 3600, (sec % 3600) / 60, (sec % 60)));
 		formattedTime = (String.format("%02d:%02d:%02d:%02d", ms / 3600000, (ms % 3600000) / 60000, (ms % 60000) / 1000,
 				(ms % 1000)));
 	}

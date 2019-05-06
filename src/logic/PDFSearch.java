@@ -20,15 +20,19 @@ public class PDFSearch extends Thread {
 		f.add(pdfPanel);
 	}
 
-	@Override
 	public void run() {
-		System.out.println("Starting search...");
+		System.out.println("Started search");
 		time.startTimer();
 		findPDFs(directory);
 		yield();
 		time.stopTimer();
 		pdfPanel.addTimeField(time.getFormattedTimeTot());
-		pdfPanel.addSearchField();
+		if (getNumberOfPdfFiles() > 0) {
+			pdfPanel.addSearchField();
+		} else {
+			String[] r = { "", "No PDFs found" };
+			pdfPanel.addTableRow(r);
+		}
 		searchComplete = true;
 		System.out.println("Search complete!");
 	}

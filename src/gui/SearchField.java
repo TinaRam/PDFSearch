@@ -6,11 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import logic.WordSearch;
 
 public class SearchField extends JPanel {
@@ -55,6 +53,7 @@ public class SearchField extends JPanel {
 		reset.setContentAreaFilled(false);
 		add(reset, BorderLayout.CENTER);
 		reset.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				resetTextField();
@@ -65,6 +64,7 @@ public class SearchField extends JPanel {
 		add(search, BorderLayout.LINE_END);
 
 		search.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				search();
@@ -72,7 +72,7 @@ public class SearchField extends JPanel {
 		});
 
 	}
-	
+
 	private void search() {
 		enableSearchButton(false);
 		enableResetButton(false);
