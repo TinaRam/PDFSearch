@@ -52,17 +52,17 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void showNumberOfPdfs(int n) {
-		jl.setText("" + n);
+		jl2.setText("<html>Number of PDFs found:<br>" + n + "</html>");
 		updateUI();
 	}
 
 	public void showElapsedTime(String timeFromStart) {
-		jl.setText(timeFromStart);
+		jl.setText("<html>Search time:<br>" + timeFromStart + "</html>");
 		updateUI();
 	}
 
 	public void showExecutionTime(String totalTime) {
-		jl.setText(totalTime);
+		jl.setText("<html>Total time:   <br>" + totalTime + "</html>");
 		updateUI();
 	}
 
