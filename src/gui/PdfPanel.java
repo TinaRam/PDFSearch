@@ -19,7 +19,6 @@ public class PdfPanel extends JPanel {
 	private JTable pdfTable;
 	private JScrollPane scrollPane;
 	private JLabel jl;
-//	private JLabel jl2;
 	private SearchField searchField;
 
 	public PdfPanel() {
@@ -37,10 +36,6 @@ public class PdfPanel extends JPanel {
 		add(scrollPane, BorderLayout.NORTH);
 		jl = new JLabel();
 		add(jl, BorderLayout.WEST);
-
-//		jl2 = new JLabel();
-//		add(jl2);
-
 	}
 
 	public void addPdf(File pdf) {
@@ -52,24 +47,14 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void updateJLabel(int n, String timeFromStart) {
-		jl.setText("<html>Found " + n + " pdfs's in " + timeFromStart + "</html>");
+		jl.setText("<html><br>Found " + n + " pdfs's in " + timeFromStart + "</html>");
 		updateUI();
 	}
 
-//	public void showNumberOfPdfs(int n) {
-//		jl2.setText("<html>Number of PDFs found:<br>" + n + "</html>");
-//		updateUI();
-//	}
-//
-//	public void showElapsedTime(String timeFromStart) {
-//		jl.setText("<html>Search time:<br>" + timeFromStart + "</html>");
-//		updateUI();
-//	}
-//
-//	public void showExecutionTime(String totalTime) {
-//		jl.setText("<html>Total time:   <br>" + totalTime + "</html>");
-//		updateUI();
-//	}
+	public void showSearchResult(int n, String time) {
+		jl.setText("<html>Search complete!<br>Found " + n + " pdfs's in " + time + "</html>");
+		updateUI();
+	}
 
 	public void addSearchField() {
 		searchField = new SearchField(this);

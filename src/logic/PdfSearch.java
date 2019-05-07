@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import javax.swing.Timer;
 import gui.FolderChooser;
 import gui.PdfPanel;
@@ -31,8 +30,6 @@ public class PdfSearch extends Thread {
 		ActionListener al = new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-//				pdfPanel.showElapsedTime(trackTime.getFormattedElapsedTime());
-//				pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
 				pdfPanel.updateJLabel(numberOfPdfFiles, trackTime.getFormattedElapsedTime());
 			}
 		};
@@ -45,16 +42,10 @@ public class PdfSearch extends Thread {
 		trackTime.stopTimer();
 		timer.stop();
 
-//		pdfPanel.showExecutionTime(trackTime.getFormattedTimeTot());
-//		pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
+		pdfPanel.showSearchResult(numberOfPdfFiles, trackTime.getFormattedTimeTot());
 
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
-		} else {
-			pdfPanel.add(new JLabel("No PDFs found!"));
-			pdfPanel.updateUI();
-//			String[] r = { "", "No PDFs found" };
-//			pdfPanel.addTableRow(r);
 		}
 		System.out.println("Search complete!");
 	}
