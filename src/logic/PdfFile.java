@@ -5,7 +5,7 @@ import java.io.File;
 public class PdfFile {
 
 	private File file;
-	protected String status;
+	private String status;
 	private String searchString;
 
 	public PdfFile(File pdf) {

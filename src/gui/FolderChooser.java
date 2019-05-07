@@ -10,7 +10,6 @@ public class FolderChooser extends JPanel {
 
 	private File directory = new File(".");
 	private PdfSearch ps;
-	protected PdfPanel pdfPanel;
 
 	public FolderChooser() {
 		setLayout(new BorderLayout(20, 20));
@@ -24,7 +23,7 @@ public class FolderChooser extends JPanel {
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile();
 			ps = new PdfSearch(directory, this);
-			ps.start(); // Any PDFs? - Go fish! (TinaGirDegHodepina)
+			ps.start();
 		}
 	}
 
