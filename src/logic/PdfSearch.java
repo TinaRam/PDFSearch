@@ -32,6 +32,7 @@ public class PdfSearch extends Thread {
 
 			public void actionPerformed(ActionEvent e) {
 				pdfPanel.showElapsedTime(trackTime.getFormattedElapsedTime());
+				pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
 			}
 		};
 		Timer timer = new Timer(1, al);
@@ -44,6 +45,7 @@ public class PdfSearch extends Thread {
 		timer.stop();
 
 		pdfPanel.showExecutionTime(trackTime.getFormattedTimeTot());
+		pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
 
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();

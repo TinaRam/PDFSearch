@@ -19,6 +19,7 @@ public class PdfPanel extends JPanel {
 	private JTable pdfTable;
 	private JScrollPane scrollPane;
 	private JLabel jl;
+	private JLabel jl2;
 	private SearchField searchField;
 
 	public PdfPanel() {
@@ -36,6 +37,10 @@ public class PdfPanel extends JPanel {
 		add(scrollPane, BorderLayout.NORTH);
 		jl = new JLabel();
 		add(jl, BorderLayout.WEST);
+
+		jl2 = new JLabel();
+		add(jl2);
+
 	}
 
 	public void addPdf(File pdf) {
@@ -44,6 +49,11 @@ public class PdfPanel extends JPanel {
 
 	public ArrayList<PdfFile> getPdfList() {
 		return pdfs;
+	}
+
+	public void showNumberOfPdfs(int n) {
+		jl.setText("" + n);
+		updateUI();
 	}
 
 	public void showElapsedTime(String timeFromStart) {
