@@ -1,6 +1,5 @@
 package logic;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -10,14 +9,14 @@ import javax.swing.Timer;
 import gui.FolderChooser;
 import gui.PdfPanel;
 
-public class PDFSearch extends Thread {
+public class PdfSearch extends Thread {
 
 	private File directory;
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
 	private TimeTracker trackTime;
 
-	public PDFSearch(File dir, FolderChooser f) {
+	public PdfSearch(File dir, FolderChooser f) {
 		trackTime = new TimeTracker();
 		directory = dir;
 		pdfPanel = new PdfPanel();

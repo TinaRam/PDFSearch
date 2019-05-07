@@ -4,12 +4,12 @@ import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import logic.PDFSearch;
+import logic.PdfSearch;
 
 public class FolderChooser extends JPanel {
 
 	private File directory = new File(".");
-	private PDFSearch ps;
+	private PdfSearch ps;
 	protected PdfPanel pdfPanel;
 
 	public FolderChooser() {
@@ -23,7 +23,7 @@ public class FolderChooser extends JPanel {
 		int returnValue = fileChooser.showOpenDialog(null);
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile();
-			ps = new PDFSearch(directory, this);
+			ps = new PdfSearch(directory, this);
 			ps.start(); // Any PDFs? - Go fish! (TinaGirDegHodepina)
 		}
 	}
