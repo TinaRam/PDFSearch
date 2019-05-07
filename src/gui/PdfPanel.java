@@ -36,8 +36,8 @@ public class PdfPanel extends JPanel {
 
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		jl = new JLabel("Searching..");
-		add(jl);
+		jl = new JLabel("00:00:00:02");
+		add(jl, BorderLayout.WEST);
 	}
 
 	public void addPdf(File pdf) {
@@ -48,9 +48,14 @@ public class PdfPanel extends JPanel {
 		return pdfs;
 	}
 
+	public void showElapsedTime(String timeFromStart) {
+		jl.setText(timeFromStart);
+		updateUI();
+	}
+
 	public void addSearchField() {
 		searchField = new SearchField(this);
-		add(searchField, BorderLayout.SOUTH);
+		add(searchField, BorderLayout.EAST);
 		updateUI();
 	}
 

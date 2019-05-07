@@ -14,7 +14,8 @@ public class Frame extends JFrame {
 		setTitle("PDF search");
 		panel = new JPanel(layout = new CardLayout(20, 20));
 		add(panel);
-		setSize(800, 600);
+		setSize(900, 610);
+		setResizable(false);
 		setJMenuBar(menu = new Menu(this));
 		setLocationRelativeTo(null); // sentrerer Frame til midten av skjermen
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

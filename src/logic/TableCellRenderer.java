@@ -18,13 +18,13 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
 		String status = (String) tableModel.getValueAt(row, 1);
 
 		if (status == "SEARCHING...") {
-			label.setForeground(Color.yellow);
+			label.setForeground(new Color(173, 138, 12));
 		} else if (status == "NOTFOUND") {
-			label.setForeground(Color.red);
+			label.setForeground(new Color(188, 32, 32));
 		} else if (status == "FOUND") {
-			label.setForeground(Color.green);
+			label.setForeground(new Color(28, 117, 54));
 		} else {
-			label.setForeground(Color.black);
+			label.setForeground(Color.BLACK);
 		}
 		return label;
 	}
