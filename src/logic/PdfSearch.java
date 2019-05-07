@@ -31,8 +31,9 @@ public class PdfSearch extends Thread {
 		ActionListener al = new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				pdfPanel.showElapsedTime(trackTime.getFormattedElapsedTime());
-				pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
+//				pdfPanel.showElapsedTime(trackTime.getFormattedElapsedTime());
+//				pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
+				pdfPanel.updateJLabel(numberOfPdfFiles, trackTime.getFormattedElapsedTime());
 			}
 		};
 		Timer timer = new Timer(1, al);
@@ -44,8 +45,8 @@ public class PdfSearch extends Thread {
 		trackTime.stopTimer();
 		timer.stop();
 
-		pdfPanel.showExecutionTime(trackTime.getFormattedTimeTot());
-		pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
+//		pdfPanel.showExecutionTime(trackTime.getFormattedTimeTot());
+//		pdfPanel.showNumberOfPdfs(numberOfPdfFiles);
 
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
