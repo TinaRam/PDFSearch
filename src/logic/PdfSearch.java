@@ -46,6 +46,9 @@ public class PdfSearch extends Thread {
 
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
+		} else {
+			String[] r = { "", "No PDFs found" };
+			pdfPanel.addTableRow(r);
 		}
 		System.out.println("Search complete!");
 	}

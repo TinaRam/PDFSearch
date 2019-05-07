@@ -47,12 +47,12 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void updateJLabel(int n, String timeFromStart) {
-		jl.setText("<html><br>Found " + n + " pdfs's in " + timeFromStart + "</html>");
+		jl.setText("<html><br>Found <b>" + n + "</b> pdfs in <b>" + timeFromStart + "</b></html>");
 		updateUI();
 	}
 
 	public void showSearchResult(int n, String time) {
-		jl.setText("<html>Search complete!<br>Found " + n + " pdfs's in " + time + "</html>");
+		jl.setText("<html><b>Search complete!</b><br>Found <b>" + n + "</b> pdfs in <b>" + time + "</b></html>");
 		updateUI();
 	}
 

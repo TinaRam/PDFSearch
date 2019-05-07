@@ -22,7 +22,7 @@ public class SearchField extends JPanel {
 		panel = p;
 		setLayout(new BorderLayout(20, 20));
 		textField = new JTextField();
-		textField.setPreferredSize(new Dimension(300, 20));
+		textField.setPreferredSize(new Dimension(350, 20));
 		textField.addKeyListener(new KeyListener() {
 
 			// TODO: fikse mindre kode?
