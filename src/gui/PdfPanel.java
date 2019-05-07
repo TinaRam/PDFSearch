@@ -16,14 +16,13 @@ public class PdfPanel extends JPanel {
 	private ArrayList<PdfFile> pdfs = new ArrayList<PdfFile>();
 	private String[] columns = { "Path", "Status" };
 	private DefaultTableModel tableModel;
-	protected JTable pdfTable;
-	protected JScrollPane scrollPane;
+	private JTable pdfTable;
+	private JScrollPane scrollPane;
 	private JLabel jl;
 	private SearchField searchField;
 
 	public PdfPanel() {
 		setLayout(new BorderLayout(20, 20));
-
 		tableModel = new DefaultTableModel(columns, 0) {
 
 			// set cell uneditable
@@ -33,7 +32,6 @@ public class PdfPanel extends JPanel {
 		};
 		pdfTable = new JTable(tableModel);
 		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
-
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
 		jl = new JLabel("00:00:00:02");
@@ -74,11 +72,6 @@ public class PdfPanel extends JPanel {
 	public void updateTable(int row, String[] data) {
 		tableModel.removeRow(row);
 		tableModel.insertRow(row, data);
-	}
-
-	public void addTimeField(String s) {
-		jl.setText(s);
-		updateUI();
 	}
 
 }

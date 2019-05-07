@@ -27,7 +27,6 @@ public class PdfFile {
 
 	public void searchInFile(String searchString) {
 		status = "SEARCHING";
-		// Legge inn kode for å sende fil til søke-klasse
 	}
 
 	public void setSearchResult(boolean result) {
@@ -37,7 +36,7 @@ public class PdfFile {
 	public String getStatus() {
 		return status;
 	}
-	
+
 	public void setStatus(String s) {
 		status = s;
 	}

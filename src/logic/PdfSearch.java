@@ -43,7 +43,6 @@ public class PdfSearch extends Thread {
 		trackTime.stopTimer();
 		timer.stop();
 
-//		pdfPanel.addTimeField(trackTime.getFormattedTimeTot());
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
