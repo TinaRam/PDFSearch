@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import logic.ColorPicker;
 
 public class Card extends JPanel implements ActionListener {
 
