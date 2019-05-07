@@ -34,7 +34,7 @@ public class PdfPanel extends JPanel {
 		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		jl = new JLabel("00:00:00:02");
+		jl = new JLabel();
 		add(jl, BorderLayout.WEST);
 	}
 
@@ -48,6 +48,11 @@ public class PdfPanel extends JPanel {
 
 	public void showElapsedTime(String timeFromStart) {
 		jl.setText(timeFromStart);
+		updateUI();
+	}
+
+	public void showExecutionTime(String totalTime) {
+		jl.setText(totalTime);
 		updateUI();
 	}
 
