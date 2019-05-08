@@ -12,6 +12,7 @@ public class Card extends JPanel implements ActionListener {
 
 	private Color color;
 	private JButton button;
+	private static int x;
 
 	public Card() {
 		setBackground(color = new ColorPicker().getRandomColor());
