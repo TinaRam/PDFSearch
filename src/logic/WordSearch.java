@@ -10,14 +10,12 @@ public class WordSearch extends Thread {
 
 	private PdfPanel panel;
 	private String searchWord;
-
 	private ArrayList<PdfFile> files;
 
 	public WordSearch(PdfPanel p, String sw) {
 		panel = p;
 		searchWord = sw;
 		files = panel.getPdfList();
-
 		if (!searchWord.equals("")) {
 			start();
 		}
@@ -38,16 +36,11 @@ public class WordSearch extends Thread {
 
 		row = 0;
 		for (PdfFile file : files) {
-			// TODO: kan vi f� til en s�nn status som endrer antall punktum??
 			updateFileStatus(file, row, "SEARCHING...");
-			// ---------
 			try {
-
 				PDDocument document = PDDocument.load(file.getFile());
 				String documentText = new PDFTextStripper().getText(document);
-
 				updateFileStatus(file, row, documentText.indexOf(searchWord) > -1 ? "FOUND" : "NOTFOUND");
-
 				document.close();
 			} catch (IOException e) {
 				updateFileStatus(file, row, "NOTFOUND");
