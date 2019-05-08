@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+
 import javax.swing.Timer;
+
+import gui.Card;
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -14,11 +17,14 @@ public class PdfSearch extends Thread {
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
 	private TimeTracker trackTime;
+	
+	private Card card;
 
 	public PdfSearch(File dir, FolderChooser f) {
+		card = f.getCard();
 		trackTime = new TimeTracker();
 		directory = dir;
-		pdfPanel = new PdfPanel();
+		pdfPanel = new PdfPanel(card);
 		f.add(pdfPanel);
 	}
 
@@ -33,7 +39,10 @@ public class PdfSearch extends Thread {
 		trackTime.startTimer();
 		Timer timer = new Timer(1, al);
 		timer.start();
-		findPDFs(directory);
+		
+		card.setTitle("Searching...");
+		findPDFs(directory);		
+		card.setTitle("Search complete!");
 
 // Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?
 //		yield();  

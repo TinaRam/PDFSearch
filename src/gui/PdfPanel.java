@@ -21,7 +21,10 @@ public class PdfPanel extends JPanel {
 	private JLabel jl;
 	private SearchField searchField;
 
-	public PdfPanel() {
+	private Card card;
+
+	public PdfPanel(Card c) {
+		card = c;
 		setLayout(new BorderLayout(20, 20));
 		tableModel = new DefaultTableModel(columns, 0) {
 
@@ -37,6 +40,10 @@ public class PdfPanel extends JPanel {
 		add(jl, BorderLayout.WEST);
 	}
 
+	public Card getCard() {
+		return card;
+	}
+
 	public void addPdf(File pdf) {
 		pdfs.add(new PdfFile(pdf));
 	}
@@ -46,7 +53,7 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void updateJLabel(int n, String timeFromStart) {
-		jl.setText("<html><br>Found <b>" + n + "</b> pdfs in <b>" + timeFromStart + "</b></html>");
+		jl.setText("<html><b>Searching...</b><br>Found <b>" + n + "</b> pdfs in <b>" + timeFromStart + "</b></html>");
 		updateUI();
 	}
 

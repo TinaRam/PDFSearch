@@ -10,8 +10,11 @@ public class FolderChooser extends JPanel {
 
 	private File directory = new File(".");
 	private PdfSearch ps;
+	
+	private Card card;
 
-	public FolderChooser() {
+	public FolderChooser(Card c) {
+		card = c;
 		setLayout(new BorderLayout(20, 20));
 
 		JFileChooser fileChooser = new JFileChooser(directory);
@@ -25,6 +28,10 @@ public class FolderChooser extends JPanel {
 			ps = new PdfSearch(directory, this);
 			ps.start();
 		}
+	}
+	
+	public Card getCard() {
+		return card;
 	}
 
 	public String getDirectory() {

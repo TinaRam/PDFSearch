@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JMenu;
@@ -42,17 +41,51 @@ public class Menu extends JMenuBar {
 		add(tools);
 	}
 
-	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
+//	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
+//		JMenuItem item = new JMenuItem("Go to this card");
+//		item.setBackground(color);
+//		item.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				layout.show(panel, color.toString());
+//			}
+//		});
+//		tools.add(item);
+//	}
+
+	public void addMenuItem(Card card, CardLayout layout, JPanel panel) {
 		JMenuItem item = new JMenuItem("Go to this card");
-		item.setBackground(color);
+		item.setBackground(card.getColor());
+		card.setMenuItem(item);
 		item.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				layout.show(panel, color.toString());
+				layout.show(panel, card.getColor().toString());
+				updateUI();
 			}
 		});
 		tools.add(item);
+	}
+
+	public void addTab(Card card, CardLayout layout, JPanel panel) {
+		JMenuItem item = new JMenuItem("Go to this card");
+		item.setBackground(card.getColor());
+
+		card.setMenuItem(item);
+
+		item.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				layout.show(panel, card.getColor().toString());
+				// card.setTitle("hei");
+				updateUI();
+			}
+		});
+
+		add(item);
 	}
 
 }
