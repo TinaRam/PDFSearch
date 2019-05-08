@@ -20,7 +20,7 @@ public class SearchField extends JPanel {
 
 	public SearchField(PdfPanel p) {
 		panel = p;
-		setLayout(new BorderLayout(20, 20));
+//		setLayout(new BorderLayout(20, 20));
 
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(350, 20));
