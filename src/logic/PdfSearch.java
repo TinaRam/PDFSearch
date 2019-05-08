@@ -4,7 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+
 import javax.swing.Timer;
+
+import gui.Card;
 import gui.FolderChooser;
 import gui.PdfPanel;
 
@@ -14,8 +17,11 @@ public class PdfSearch extends Thread {
 	private PdfPanel pdfPanel;
 	private int numberOfPdfFiles;
 	private TimeTracker trackTime;
+	
+	private Card card;
 
-	public PdfSearch(File dir, FolderChooser f) {
+	public PdfSearch(File dir, FolderChooser f, Card c) {
+		card = c;
 		trackTime = new TimeTracker();
 		directory = dir;
 		pdfPanel = new PdfPanel();
@@ -33,7 +39,14 @@ public class PdfSearch extends Thread {
 		trackTime.startTimer();
 		Timer timer = new Timer(1, al);
 		timer.start();
+		
+		// endre menynavnet her til "searching.."
+		
+		card.setTitle("Searching for pdfs...");
+		//System.out.println(card.item != null);
 		findPDFs(directory);
+		
+		card.setTitle("Search finished");
 
 // Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?
 //		yield();  

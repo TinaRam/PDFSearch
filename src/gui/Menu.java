@@ -57,18 +57,19 @@ public class Menu extends JMenuBar {
 		tools.add(item);
 	}
 	
-	public void addTab(Color color, CardLayout layout, JPanel panel) {
+	public void addTab(Card card, CardLayout layout, JPanel panel) {
 		JMenuItem item = new JMenuItem("Go to this card");
-		item.setBackground(color);
+		item.setBackground(card.getColor());
+
+		card.setMenuItem(item);
 		
 		item.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				layout.show(panel, color.toString());
+				layout.show(panel, card.getColor().toString());
+				//card.setTitle("hei");
+				updateUI();
 			}
-			
 		});
 		
 		add(item);

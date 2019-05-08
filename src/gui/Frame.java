@@ -39,7 +39,7 @@ public class Frame extends JFrame {
 		card.updateUI();
 		
 		
-		menu.addTab(card.getColor(), layout, panel);
+		menu.addTab(card, layout, panel);
 		
 	}
 
