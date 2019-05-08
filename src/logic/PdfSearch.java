@@ -40,9 +40,9 @@ public class PdfSearch extends Thread {
 		Timer timer = new Timer(1, al);
 		timer.start();
 		
-		card.setTitle("Searching for pdfs...");
+		card.setTitle("Searching...");
 		findPDFs(directory);		
-		card.setTitle("Search finished");
+		card.setTitle("Search complete");
 
 // Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?
 //		yield();  
