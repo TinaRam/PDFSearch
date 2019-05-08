@@ -39,8 +39,9 @@ public class Frame extends JFrame {
 		card.updateUI();
 		
 		
-		menu.addTab(card, layout, panel);
-		
+		//menu.addTab(card, layout, panel);
+		menu.addMenuItem(card, layout, panel);
+
 	}
 
 }
