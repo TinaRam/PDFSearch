@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import logic.ColorPicker;
+import logic.RandomColorPicker;
 
 public class Card extends JPanel implements ActionListener {
 
@@ -18,7 +18,7 @@ public class Card extends JPanel implements ActionListener {
 	public JMenuItem item = null;
 
 	public Card() {
-		setBackground(color = new ColorPicker().getRandomColor());
+		setBackground(color = new RandomColorPicker().getRandomColor());
 		setLayout(new BorderLayout(20, 20));
 
 		add(button = new JButton("Select Folder") {
