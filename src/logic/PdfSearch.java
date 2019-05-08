@@ -42,7 +42,7 @@ public class PdfSearch extends Thread {
 		
 		card.setTitle("Searching...");
 		findPDFs(directory);		
-		card.setTitle("Search complete");
+		card.setTitle("Search complete!");
 
 // Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?
 //		yield();  

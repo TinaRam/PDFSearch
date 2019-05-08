@@ -30,9 +30,9 @@ public class WordSearch extends Thread {
 
 	@Override
 	public void run() {
-		card.setTitle("Searching for string...");
+		card.setTitle("Searching in PDFs...");
 		search();
-		card.setTitle("Finished word search");
+		card.setTitle("Word search done");
 
 		panel.finishWordSearch();
 	}
