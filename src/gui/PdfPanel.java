@@ -20,7 +20,7 @@ public class PdfPanel extends JPanel {
 	private JScrollPane scrollPane;
 	private JLabel jl;
 	private SearchField searchField;
-	
+
 	private Card card;
 
 	public PdfPanel(Card c) {
@@ -39,7 +39,7 @@ public class PdfPanel extends JPanel {
 		jl = new JLabel();
 		add(jl, BorderLayout.WEST);
 	}
-	
+
 	public Card getCard() {
 		return card;
 	}
@@ -53,7 +53,7 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void updateJLabel(int n, String timeFromStart) {
-		jl.setText("<html><br>Found <b>" + n + "</b> pdfs in <b>" + timeFromStart + "</b></html>");
+		jl.setText("<html><b>Searching...</b><br>Found <b>" + n + "</b> pdfs in <b>" + timeFromStart + "</b></html>");
 		updateUI();
 	}
 
