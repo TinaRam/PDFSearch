@@ -2,10 +2,8 @@ package logic;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-
 import gui.Card;
 import gui.PdfPanel;
 
@@ -14,14 +12,12 @@ public class WordSearch extends Thread {
 	private PdfPanel panel;
 	private String searchWord;
 	private ArrayList<PdfFile> files;
-	
 	private Card card;
 
 	public WordSearch(PdfPanel p, String sw) {
 		panel = p;
 		searchWord = sw;
 		card = p.getCard();
-		
 		files = panel.getPdfList();
 		if (!searchWord.equals("")) {
 			start();
@@ -33,7 +29,6 @@ public class WordSearch extends Thread {
 		card.setTitle("Searching in PDFs...");
 		search();
 		card.setTitle("Word search done");
-
 		panel.finishWordSearch();
 	}
 

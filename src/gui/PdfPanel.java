@@ -20,7 +20,6 @@ public class PdfPanel extends JPanel {
 	private JScrollPane scrollPane;
 	private JLabel jl;
 	private SearchField searchField;
-
 	private Card card;
 
 	public PdfPanel(Card c) {
@@ -36,8 +35,7 @@ public class PdfPanel extends JPanel {
 		pdfTable.getColumnModel().getColumn(1).setCellRenderer(new TableCellRenderer());
 		scrollPane = new JScrollPane(pdfTable);
 		add(scrollPane, BorderLayout.NORTH);
-		jl = new JLabel();
-		add(jl, BorderLayout.WEST);
+		add(jl = new JLabel(), BorderLayout.WEST);
 	}
 
 	public Card getCard() {
@@ -64,7 +62,7 @@ public class PdfPanel extends JPanel {
 
 	public void addSearchField() {
 		searchField = new SearchField(this);
-		add(searchField, BorderLayout.EAST);
+		add(searchField);
 		updateUI();
 	}
 

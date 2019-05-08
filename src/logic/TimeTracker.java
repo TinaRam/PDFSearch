@@ -28,7 +28,6 @@ public class TimeTracker {
 		elapsedMillis = Duration.between(start, stop).toMillis();
 	}
 
-	// Formaterer ms om til timer:min:sec:ms
 	private void formatElapsedTime(long ms) {
 		formattedTime = (String.format("%02d:%02d:%02d:%02d", ms / 3600000, (ms % 3600000) / 60000, (ms % 60000) / 1000,
 				(ms % 1000)));

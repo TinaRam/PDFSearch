@@ -10,7 +10,6 @@ public class FolderChooser extends JPanel {
 
 	private File directory = new File(".");
 	private PdfSearch ps;
-	
 	private Card card;
 
 	public FolderChooser(Card c) {
@@ -29,7 +28,7 @@ public class FolderChooser extends JPanel {
 			ps.start();
 		}
 	}
-	
+
 	public Card getCard() {
 		return card;
 	}

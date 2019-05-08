@@ -19,7 +19,7 @@ public class Frame extends JFrame {
 		setSize(800, 620);
 		setResizable(false);
 		setJMenuBar(menu = new Menu(this));
-		setLocationRelativeTo(null); // sentrerer Frame til midten av skjermen
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setVisible(true);
 
@@ -34,14 +34,9 @@ public class Frame extends JFrame {
 	public void createCard() {
 		Card card = new Card();
 		panel.add(card, card.getColor().toString());
-		//menu.addMenuItem(card.getColor(), layout, panel);
 		layout.show(panel, card.getColor().toString());
 		card.updateUI();
-		
-		
-		//menu.addTab(card, layout, panel);
 		menu.addMenuItem(card, layout, panel);
-
 	}
 
 }

@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,9 +19,8 @@ public class SearchField extends JPanel {
 
 	public SearchField(PdfPanel p) {
 		panel = p;
-
 		textField = new JTextField();
-		textField.setPreferredSize(new Dimension(350, 20));
+		textField.setPreferredSize(new Dimension(380, 20));
 		textField.addKeyListener(new KeyListener() {
 
 			@Override
@@ -34,22 +32,17 @@ public class SearchField extends JPanel {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-
 			}
 		});
-		add(textField, BorderLayout.LINE_START);
+		add(textField);
 
 		reset = new JButton("X");
 		reset.setBorder(null);
 		reset.setContentAreaFilled(false);
-		add(reset, BorderLayout.CENTER);
 		reset.addActionListener(new ActionListener() {
 
 			@Override
@@ -57,6 +50,7 @@ public class SearchField extends JPanel {
 				resetTextField();
 			}
 		});
+		add(reset);
 
 		search = new JButton("Search");
 		search.addActionListener(new ActionListener() {
@@ -66,7 +60,7 @@ public class SearchField extends JPanel {
 				search();
 			}
 		});
-		add(search, BorderLayout.LINE_END);
+		add(search);
 	}
 
 	private void search() {

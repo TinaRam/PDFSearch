@@ -41,19 +41,6 @@ public class Menu extends JMenuBar {
 		add(tools);
 	}
 
-//	public void addMenuItem(Color color, CardLayout layout, JPanel panel) {
-//		JMenuItem item = new JMenuItem("Go to this card");
-//		item.setBackground(color);
-//		item.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				layout.show(panel, color.toString());
-//			}
-//		});
-//		tools.add(item);
-//	}
-
 	public void addMenuItem(Card card, CardLayout layout, JPanel panel) {
 		JMenuItem item = new JMenuItem("Go to this card");
 		item.setBackground(card.getColor());
@@ -67,25 +54,6 @@ public class Menu extends JMenuBar {
 			}
 		});
 		tools.add(item);
-	}
-
-	public void addTab(Card card, CardLayout layout, JPanel panel) {
-		JMenuItem item = new JMenuItem("Go to this card");
-		item.setBackground(card.getColor());
-
-		card.setMenuItem(item);
-
-		item.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				layout.show(panel, card.getColor().toString());
-				// card.setTitle("hei");
-				updateUI();
-			}
-		});
-
-		add(item);
 	}
 
 }
