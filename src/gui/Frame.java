@@ -3,8 +3,8 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -20,7 +20,7 @@ public class Frame extends JFrame {
 		setTitle("PDF search");
 		panel = new JPanel(layout = new CardLayout(20, 20));
 		add(panel);
-		setSize(800, 610);
+		setSize(800, 640);
 		setResizable(false);
 		setJMenuBar(menu = new Menu(this));
 		setLocationRelativeTo(null); // sentrerer Frame til midten av skjermen
@@ -30,8 +30,6 @@ public class Frame extends JFrame {
 		
 		tab = new JTabbedPane();
 		
-		JLabel panel1 = new JLabel("test");
-		tab.addTab("test1", panel1);
 		
 		
 		panel.add(tab, BorderLayout.CENTER);
@@ -40,12 +38,17 @@ public class Frame extends JFrame {
 	public void createCard() {
 		Card card = new Card();
 		
-		
 		tab.addTab("Go to this card", card);
+		tab.setBackgroundAt(tab.getTabCount() - 1, card.getColor());
+		tab.setSelectedIndex(tab.getTabCount() - 1);
 		//panel.add(card, card.getColor().toString());
-		menu.addMenuItem(card.getColor(), layout, panel);
-		layout.show(panel, card.getColor().toString());
+		//menu.addMenuItem(card.getColor(), layout, panel);
+		//layout.show(panel, card.getColor().toString());
 		card.updateUI();
+	}
+	
+	public void showTab(JComponent c) {
+		tab.setSelectedComponent(c);
 	}
 
 }

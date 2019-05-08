@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -12,8 +14,10 @@ import javax.swing.JPanel;
 public class Menu extends JMenuBar {
 
 	private JMenu tools;
+	private Frame frame;
 
 	public Menu(Frame f) {
+		frame = f;
 		JMenu file = new JMenu("File");
 		tools = new JMenu("Tools");
 		JMenuItem exit = new JMenuItem("Exit");
@@ -37,7 +41,7 @@ public class Menu extends JMenuBar {
 
 		file.add(exit);
 		tools.add(newCard);
-		tools.addSeparator();
+		//tools.addSeparator();
 		add(file);
 		add(tools);
 	}
@@ -49,7 +53,7 @@ public class Menu extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				layout.show(panel, color.toString());
+				//layout.show(panel, color.toString());
 			}
 		});
 		tools.add(item);
