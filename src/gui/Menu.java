@@ -23,7 +23,7 @@ public class Menu extends JMenuBar {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				new Popup(f).showExitPopup();
 			}
 		});
 
