@@ -25,9 +25,13 @@ public class FolderChooser extends JPanel {
 		int returnValue = fileChooser.showOpenDialog(null);
 		if (returnValue == JFileChooser.APPROVE_OPTION) {
 			directory = fileChooser.getSelectedFile();
-			ps = new PdfSearch(directory, this, card);
+			ps = new PdfSearch(directory, this);
 			ps.start();
 		}
+	}
+	
+	public Card getCard() {
+		return card;
 	}
 
 	public String getDirectory() {

@@ -17,10 +17,10 @@ public class WordSearch extends Thread {
 	
 	private Card card;
 
-	public WordSearch(PdfPanel p, String sw, Card c) {
+	public WordSearch(PdfPanel p, String sw) {
 		panel = p;
 		searchWord = sw;
-		card = c;
+		card = p.getCard();
 		
 		files = panel.getPdfList();
 		if (!searchWord.equals("")) {
@@ -30,7 +30,7 @@ public class WordSearch extends Thread {
 
 	@Override
 	public void run() {
-		card.setTitle("Searching for search word...");
+		card.setTitle("Searching for string...");
 		search();
 		card.setTitle("Finished word search");
 

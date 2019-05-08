@@ -20,8 +20,8 @@ public class PdfSearch extends Thread {
 	
 	private Card card;
 
-	public PdfSearch(File dir, FolderChooser f, Card c) {
-		card = c;
+	public PdfSearch(File dir, FolderChooser f) {
+		card = f.getCard();
 		trackTime = new TimeTracker();
 		directory = dir;
 		pdfPanel = new PdfPanel(card);
@@ -40,12 +40,8 @@ public class PdfSearch extends Thread {
 		Timer timer = new Timer(1, al);
 		timer.start();
 		
-		// endre menynavnet her til "searching.."
-		
 		card.setTitle("Searching for pdfs...");
-		//System.out.println(card.item != null);
-		findPDFs(directory);
-		
+		findPDFs(directory);		
 		card.setTitle("Search finished");
 
 // Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?

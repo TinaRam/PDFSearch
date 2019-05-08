@@ -39,6 +39,10 @@ public class PdfPanel extends JPanel {
 		jl = new JLabel();
 		add(jl, BorderLayout.WEST);
 	}
+	
+	public Card getCard() {
+		return card;
+	}
 
 	public void addPdf(File pdf) {
 		pdfs.add(new PdfFile(pdf));
@@ -59,7 +63,7 @@ public class PdfPanel extends JPanel {
 	}
 
 	public void addSearchField() {
-		searchField = new SearchField(this, card);
+		searchField = new SearchField(this);
 		add(searchField, BorderLayout.EAST);
 		updateUI();
 	}
