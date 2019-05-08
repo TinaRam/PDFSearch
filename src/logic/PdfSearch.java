@@ -24,7 +24,7 @@ public class PdfSearch extends Thread {
 		card = c;
 		trackTime = new TimeTracker();
 		directory = dir;
-		pdfPanel = new PdfPanel();
+		pdfPanel = new PdfPanel(card);
 		f.add(pdfPanel);
 	}
 

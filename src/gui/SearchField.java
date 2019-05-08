@@ -17,9 +17,12 @@ public class SearchField extends JPanel {
 	private JButton search;
 	private JButton reset;
 	private PdfPanel panel;
+	
+	private Card card;
 
-	public SearchField(PdfPanel p) {
+	public SearchField(PdfPanel p, Card c) {
 		panel = p;
+		card = c;
 		setLayout(new BorderLayout(20, 20));
 
 		textField = new JTextField();
@@ -74,7 +77,7 @@ public class SearchField extends JPanel {
 		enableSearchButton(false);
 		enableResetButton(false);
 		enableTextField(false);
-		new WordSearch(panel, getSearchWord());
+		new WordSearch(panel, getSearchWord(), card);
 	}
 
 	public String getSearchWord() {
