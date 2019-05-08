@@ -22,10 +22,6 @@ public class TimeTracker {
 		stop = Instant.now();
 		this.elapsedMillis();
 		this.formatElapsedTime(elapsedMillis);
-
-		// Only for testing purposes
-		System.out.println("Time in ms: " + elapsedMillis);
-		System.out.println("Formatted time: " + formattedTime);
 	}
 
 	private void elapsedMillis() {
@@ -51,4 +47,5 @@ public class TimeTracker {
 	public String getFormattedTimeTot() {
 		return formattedTime;
 	}
+
 }

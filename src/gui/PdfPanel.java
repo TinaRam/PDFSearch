@@ -25,7 +25,6 @@ public class PdfPanel extends JPanel {
 		setLayout(new BorderLayout(20, 20));
 		tableModel = new DefaultTableModel(columns, 0) {
 
-			// set cell uneditable
 			public boolean isCellEditable(int row, int column) {
 				return false;
 			}
@@ -66,8 +65,6 @@ public class PdfPanel extends JPanel {
 		searchField.enableSearchButton(true);
 		searchField.enableResetButton(true);
 		searchField.enableTextField(true);
-
-		System.out.println("finished word search");
 	}
 
 	public void addTableRow(String[] row) {

@@ -21,11 +21,11 @@ public class SearchField extends JPanel {
 	public SearchField(PdfPanel p) {
 		panel = p;
 		setLayout(new BorderLayout(20, 20));
+
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(350, 20));
 		textField.addKeyListener(new KeyListener() {
 
-			// TODO: fikse mindre kode?
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -44,7 +44,6 @@ public class SearchField extends JPanel {
 				// TODO Auto-generated method stub
 
 			}
-
 		});
 		add(textField, BorderLayout.LINE_START);
 
@@ -61,8 +60,6 @@ public class SearchField extends JPanel {
 		});
 
 		search = new JButton("Search");
-		add(search, BorderLayout.LINE_END);
-
 		search.addActionListener(new ActionListener() {
 
 			@Override
@@ -70,7 +67,7 @@ public class SearchField extends JPanel {
 				search();
 			}
 		});
-
+		add(search, BorderLayout.LINE_END);
 	}
 
 	private void search() {

@@ -33,7 +33,6 @@ public class WordSearch extends Thread {
 			updateFileStatus(file, row, "UNSEARCHED");
 			row++;
 		}
-
 		row = 0;
 		for (PdfFile file : files) {
 			updateFileStatus(file, row, "SEARCHING...");

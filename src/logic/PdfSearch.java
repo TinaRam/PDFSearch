@@ -24,33 +24,30 @@ public class PdfSearch extends Thread {
 
 	@Override
 	public void run() {
-		System.out.println("Started search");
-		trackTime.startTimer();
-
 		ActionListener al = new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				pdfPanel.updateJLabel(numberOfPdfFiles, trackTime.getFormattedElapsedTime());
 			}
 		};
+		trackTime.startTimer();
 		Timer timer = new Timer(1, al);
 		timer.start();
-
 		findPDFs(directory);
-		yield();
+
+// Jeg har testa uten denne og alt funker fortsatt som det skal. Kan vi fjerne den?
+//		yield();  
 
 		trackTime.stopTimer();
 		timer.stop();
 
 		pdfPanel.showSearchResult(numberOfPdfFiles, trackTime.getFormattedTimeTot());
-
 		if (getNumberOfPdfFiles() > 0) {
 			pdfPanel.addSearchField();
 		} else {
 			String[] r = { "", "No PDFs found" };
 			pdfPanel.addTableRow(r);
 		}
-		System.out.println("Search complete!");
 	}
 
 	private void findPDFs(File file) {
@@ -64,7 +61,6 @@ public class PdfSearch extends Thread {
 		} else if (file.getAbsolutePath().endsWith(".pdf")) {
 			pdfPanel.addPdf(file);
 			numberOfPdfFiles++;
-			System.out.println("PDFSearch.java --> numberOfPdfFiles: " + numberOfPdfFiles);
 			String[] r = { file.getAbsolutePath().toString(), "UNSEARCHED" };
 			pdfPanel.addTableRow(r);
 		}

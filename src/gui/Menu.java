@@ -16,7 +16,6 @@ public class Menu extends JMenuBar {
 	public Menu(Frame f) {
 		JMenu file = new JMenu("File");
 		tools = new JMenu("Tools");
-
 		JMenuItem exit = new JMenuItem("Exit");
 		JMenuItem newCard = new JMenuItem("Create a new search card");
 

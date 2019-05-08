@@ -12,7 +12,6 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 			int row, int col) {
-
 		JLabel label = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
 		String status = (String) tableModel.getValueAt(row, 1);
