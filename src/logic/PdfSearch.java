@@ -37,7 +37,7 @@ public class PdfSearch extends Thread {
 		Timer timer = new Timer(1, al);
 		timer.start();
 
-		card.setTitle("Searching...");
+		card.setTitle("<html><b>Searching...</b></html>");
 		findPDFs(directory);
 		card.setTitle("Search complete!");
 

@@ -26,7 +26,7 @@ public class WordSearch extends Thread {
 
 	@Override
 	public void run() {
-		card.setTitle("Searching in PDFs...");
+		card.setTitle("<html><b>Searching in PDFs...</b></html>");
 		search();
 		card.setTitle("Word search done");
 		panel.finishWordSearch();
