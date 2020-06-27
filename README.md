@@ -1,5 +1,4 @@
 # PDFSearch
-
 7 dagers gruppeeksamen i kurset OBJ2100 "Objektorientert programmering 2" høsten 2019.
 
 ## Oppgavebeskrivelse
